@@ -25,14 +25,14 @@ export const Admin: FunctionComponent = () => {
 
     const getExcelData = async () => {
         const response = await axios.get(
-            `http://localhost:5000/misc/download`,
+            `${process.env.REACT_APP_API_ENDPOINT}/misc/download`,
             { responseType: 'blob' }
         );
         setExcelData(response.data);
     };
 
     const deleteExcelData = async () => {
-        await axios.get(`http://localhost:5000/misc/clean`);
+        await axios.get(`${process.env.REACT_APP_API_ENDPOINT}/misc/clean`);
     };
 
     useEffect(() => {

@@ -52,9 +52,8 @@ export const Login: FunctionComponent = () => {
     const loginHandler = async () => {
         try {
             setIsLoading(true);
-            console.log(process.env.REACT_APP_API_ENDPOINT);
             const response = await axios.get(
-                `http://localhost:5000/users?username=${username}`
+                `${process.env.REACT_APP_API_ENDPOINT}/users?username=${username}`
             );
             const responseData = response.data;
             const userData: UserModel = responseData.data;
