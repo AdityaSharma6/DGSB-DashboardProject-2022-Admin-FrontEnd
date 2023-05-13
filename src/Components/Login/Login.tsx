@@ -16,7 +16,6 @@ import {
     LockIcon,
 } from '@fluentui/react-icons-northstar';
 import './Login.css';
-import { useLocation } from 'react-router';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { AuthenticationLevels, UserModel } from '../../Models/User';
@@ -32,7 +31,6 @@ export const Login: FunctionComponent = () => {
     >(undefined);
     const [isLoading, setIsLoading] = useState(false);
 
-    const location = useLocation();
     const navigate = useNavigate();
 
     const usernameOnChangeHandler = (
