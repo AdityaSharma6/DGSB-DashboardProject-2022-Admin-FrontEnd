@@ -59,15 +59,10 @@ export const Login: FunctionComponent = () => {
             if (password !== userData.password) {
                 throw new Error('Incorrect password. User not authorized.');
             } else {
-                let userAuthLevel: AuthenticationLevels =
-                    username === 'Admin' && password === 'Admin'
-                        ? AuthenticationLevels.Admin
-                        : AuthenticationLevels.Other;
-
                 setUser({
                     ...userData,
                     isAuthenticated: true,
-                    authLevel: userAuthLevel,
+                    authLevel: AuthenticationLevels.Admin,
                 });
 
                 navigate('/admin');
@@ -135,7 +130,7 @@ export const Login: FunctionComponent = () => {
                             {correctLoginCredential === false && (
                                 <Text
                                     error
-                                    content='If you have forgotten your Admin Credentials, please contact the developer of the project. Otherwise, retry.'
+                                    content='If you have forgotten your Admin Credentials, please refer to the off-boarding documentation.'
                                 />
                             )}
                         </Flex>
